@@ -25,15 +25,6 @@ mod spl_token_swap_programs {
     pub const PENGUIN: Pubkey = pubkey!("PSwapMdSai8tjrEXcxFeQth87xC4rRsa4VA5mhGhXkP");
 }
 
-// export const PROGRAM_ID_TO_LABEL = new Map<string, string>([
-//   ["DjVE6JNiYqPL2QXyCUUh8rNjHrbz9hXHNYt99MQ59qw1", "Orca v1"],
-//   ["9W959DqEETiGZocYWCQPaJ6sBmUzgfxXfqGeTEdp3aQP", "Orca"],
-//   [STEP_TOKEN_SWAP_PROGRAM_ID.toBase58(), "Step"],
-//   ["PSwapMdSai8tjrEXcxFeQth87xC4rRsa4VA5mhGhXkP", "Penguin"],
-//   ["SSwapUtytfBdBn1b9NUGG6foMVPtcWgpRU32HToDUZr", "Saros"],
-//   ["Dooar9JkhdZ7J3LHN3A7YCuoGRUggXhQaG4kijfLGU2j", "StepN"],
-// ]);
-
 lazy_static! {
     pub static ref SPL_TOKEN_SWAP_PROGRAMS: HashMap<Pubkey, String> = {
         let mut m = HashMap::new();
