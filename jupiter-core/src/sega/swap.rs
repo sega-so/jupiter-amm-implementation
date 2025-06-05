@@ -26,15 +26,15 @@ impl ToAccountMetas for SegaSwap {
             AccountMeta::new_readonly(self.authority, false),
             AccountMeta::new_readonly(self.amm_config, false),
             AccountMeta::new(self.pool_state, false),
-            AccountMeta::new(self.input_token_account, true),
-            AccountMeta::new(self.output_token_account, true),
-            AccountMeta::new(self.input_vault, true),
-            AccountMeta::new(self.output_vault, true),
+            AccountMeta::new(self.input_token_account, false),
+            AccountMeta::new(self.output_token_account, false),
+            AccountMeta::new(self.input_vault, false),
+            AccountMeta::new(self.output_vault, false),
             AccountMeta::new_readonly(self.input_token_program, false),
             AccountMeta::new_readonly(self.output_token_program, false),
             AccountMeta::new_readonly(self.input_token_mint, false),
             AccountMeta::new_readonly(self.output_token_mint, false),
-            AccountMeta::new(self.observation_state, true),
+            AccountMeta::new(self.observation_state, false),
         ]
     }
 }
