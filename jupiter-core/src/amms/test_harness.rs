@@ -53,7 +53,7 @@ use super::loader::amm_factory;
 const JITOSOL_MINT: Pubkey = pubkey!("J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn");
 
 lazy_static! {
-    pub static ref TOKEN_MINT_AND_IN_AMOUNT: [(Pubkey, u64); 5] = [
+    pub static ref TOKEN_MINT_AND_IN_AMOUNT: [(Pubkey, u64); 7] = [
         (spl_token::native_mint::ID, 25_000_000_000),
         (JITOSOL_MINT, 8_000_000_000),
         (
@@ -62,6 +62,14 @@ lazy_static! {
         ),
         (constants::USDC_MINT, 1_110_000_000),
         (constants::USDT_MINT, 1_110_000_000),
+        (
+            pubkey!("EqkWxEAo4Y6CqEpn3EoFQ2cmohCVWTiqzoMbydn38AhE"),
+            100_000_000_000
+        ),
+        (
+            pubkey!("SonicxvLud67EceaEzCLRnMTBqzYUUYNr93DBkBdDES"),
+            100_000_000_000
+        ),
     ];
     pub static ref TOKEN2022_MINT_AND_IN_AMOUNT: [(Pubkey, u64); 0] = [];
     pub static ref TOKEN_MINT_TO_IN_AMOUNT: HashMap<Pubkey, u64> = {
