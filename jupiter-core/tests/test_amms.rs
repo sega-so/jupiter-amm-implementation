@@ -19,7 +19,7 @@ async fn test_quoting_for_amm_key<T: Amm + 'static>(
     use_shared_accounts: bool,
     tolerance: u64,
     option: Option<String>,
-    before_test_setup: Option<impl FnMut(&dyn Amm, &mut HashMap<Pubkey, Account, RandomState>)>,
+    before_test_setup: Option<impl FnMut(&dyn Amm, &mut AccountMap)>,
     expect_error: Option<Error>,
     restricted_mint_permutations: Option<Vec<(Pubkey, Pubkey)>>,
 ) where
@@ -63,7 +63,7 @@ macro_rules! test_exact_in_amms {
                         "default" => None,
                         _ => Some($option.to_string()),
                     };
-                    let before_test_setup: Option<fn(&dyn Amm, &mut HashMap<Pubkey, Account, RandomState>)> = None;
+                    let before_test_setup: Option<fn(&dyn Amm, &mut AccountMap)> = None;
                     test_quoting_for_amm_key::<$amm_struct>($amm_key, SwapMode::ExactIn, false, $tolerance, option, before_test_setup, None, None).await
                 }
                 #[tokio::test]
@@ -72,7 +72,7 @@ macro_rules! test_exact_in_amms {
                         "default" => None,
                         _ => Some($option.to_string()),
                     };
-                    let before_test_setup: Option<fn(&dyn Amm, &mut HashMap<Pubkey, Account, RandomState>)> = None;
+                    let before_test_setup: Option<fn(&dyn Amm, &mut AccountMap)> = None;
                     test_quoting_for_amm_key::<$amm_struct>($amm_key, SwapMode::ExactIn, true, $tolerance, option, before_test_setup, None, None).await
                 }
             }
@@ -92,13 +92,13 @@ macro_rules! test_exact_out_amms {
                 #[tokio::test]
                 async fn [<test_quote_ $amm_key:lower _ $option:lower>] () {
                     let option = Some($option.to_string());
-                    let before_test_setup: Option<fn(&dyn Amm, &mut HashMap<Pubkey, Account>)> = None;
+                    let before_test_setup: Option<fn(&dyn Amm, &mut AccountMap)> = None;
                     test_quoting_for_amm_key::<$amm_struct>($amm_key, SwapMode::ExactOut, true, $tolerance, option, before_test_setup, None, None).await
                 }
                 #[tokio::test]
                 async fn [<test_quote_ $amm_key:lower _ $option:lower _ without_shared_accounts>] () {
                     let option = Some($option.to_string());
-                    let before_test_setup: Option<fn(&dyn Amm, &mut HashMap<Pubkey, Account>)> = None;
+                    let before_test_setup: Option<fn(&dyn Amm, &mut AccountMap)> = None;
                     test_quoting_for_amm_key::<$amm_struct>($amm_key, SwapMode::ExactOut, false, $tolerance, option, before_test_setup, None, None).await
                 }
             }

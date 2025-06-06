@@ -22,7 +22,7 @@ impl ToAccountMetas for SegaSwap {
     fn to_account_metas(&self, _is_signer: Option<bool>) -> Vec<AccountMeta> {
         vec![
             AccountMeta::new(self.program, false),
-            AccountMeta::new(self.payer, true),
+            AccountMeta::new(self.payer, false),
             AccountMeta::new_readonly(self.authority, false),
             AccountMeta::new_readonly(self.amm_config, false),
             AccountMeta::new(self.pool_state, false),
