@@ -222,7 +222,7 @@ impl AmmTestHarnessProgramTest {
 
         // solution for amm that cant quote certain amount and also could be bug introducing, divide by 2 until can quote
         while quote_result.is_none() && quote_count < 10 {
-            amount /= 2;
+            amount = amount / 2;
             match amm.quote(&QuoteParams {
                 amount,
                 input_mint: *source_mint,
@@ -478,7 +478,6 @@ impl RpcSender for TestRpcSender {
             RpcRequest::GetAccountInfo => {
                 let pubkey = Pubkey::from_str(params[0].as_str().unwrap()).unwrap();
                 let account = banks_client.get_account(pubkey).await.unwrap().unwrap();
-
                 Ok(serde_json::to_value(Response {
                     context,
                     value: encode_ui_account(
@@ -625,8 +624,8 @@ impl AmmTestHarness {
         amm.update(&account_map).unwrap();
     }
 
-    fn load_accounts_snapshot(&self) -> HashMap<Pubkey, Account, RandomState> {
-        let mut account_map: HashMap<Pubkey, Account, RandomState> = HashMap::default();
+    fn load_accounts_snapshot(&self) -> AccountMap {
+        let mut account_map: AccountMap = HashMap::default();
         for entry in glob(&format!(
             "tests/fixtures/accounts/{0}/*.json",
             self.directory_name()

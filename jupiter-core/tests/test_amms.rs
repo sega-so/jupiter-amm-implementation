@@ -2,7 +2,7 @@ use std::collections::HashMap;
 
 use ahash::RandomState;
 use anyhow::Error;
-use jupiter_amm_interface::{AmmContext, ClockRef, KeyedAccount, SwapMode};
+use jupiter_amm_interface::{AmmContext, ClockRef, KeyedAccount, SwapMode, AccountMap};
 use jupiter_core::{
     amm::Amm,
     amms::{sega_amm::SegaAmm, spl_token_swap_amm::SplTokenSwapAmm, test_harness::AmmTestHarness},
@@ -124,7 +124,7 @@ async fn test_quoting_with_amm(
     tolerance: u64,
     use_shared_accounts: bool,
     swap_mode: SwapMode,
-    mut before_test_setup: Option<impl FnMut(&dyn Amm, &mut HashMap<Pubkey, Account, RandomState>)>,
+    mut before_test_setup: Option<impl FnMut(&dyn Amm, &mut AccountMap)>,
     expect_error: Option<anyhow::Error>,
     restricted_mint_permutations: Option<Vec<(Pubkey, Pubkey)>>,
 ) {
