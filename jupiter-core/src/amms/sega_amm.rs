@@ -232,26 +232,13 @@ impl Amm for SegaAmm {
             _ => return Err(anyhow!("Vault amount underflow")),
         };
 
-        let (trade_fee_rate, protocol_fee_rate, fund_fee_rate) = if zero_for_one {
-            (
-                amm_config.trade_fee_rate,
-                amm_config.protocol_fee_rate,
-                amm_config.fund_fee_rate,
-            )
-        } else {
-            (
-                amm_config.trade_fee_rate,
-                amm_config.protocol_fee_rate,
-                amm_config.fund_fee_rate,
-            )
-        };
         let swap_result = CurveCalculator::swap_base_input(
             u128::from(actual_amount_in),
             total_token_0_amount.into(),
             total_token_1_amount.into(),
-            trade_fee_rate,
-            protocol_fee_rate,
-            fund_fee_rate,
+            amm_config.trade_fee_rate,
+            amm_config.protocol_fee_rate,
+            amm_config.fund_fee_rate,
         )
         .context("Swap failed")?;
     
