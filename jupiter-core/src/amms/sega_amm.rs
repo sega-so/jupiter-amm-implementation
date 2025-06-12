@@ -16,7 +16,7 @@ use std::sync::Arc;
 use std::collections::HashMap;
 use solana_sdk::{pubkey, pubkey::Pubkey};
 
-use crate::sega::{
+use sega_cp_swap::{
     AmmConfig, PoolState, AUTH_SEED, ObservationState, CurveCalculator, SegaSwap,
     PoolStatusBitIndex
 };

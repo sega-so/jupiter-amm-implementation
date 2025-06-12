@@ -7,7 +7,6 @@ edition = { workspace = true }
 [dependencies]
 ahash = "0.8.11"
 anchor-lang = { workspace = true }
-anchor-spl = { workspace = true}
 solana-sdk = { workspace = true }
 solana-client = { workspace = true }
 solana-account-decoder = { workspace = true }
@@ -28,7 +27,6 @@ tokio = { workspace = true, features = ["full"] }
 assert_matches = "1.5.0"
 itertools = "0.12.1"
 clap = { version = "4.5.2", features = ["derive"] }
-uint = "0.10.0"
 
 # SPL
 spl-token = { workspace = true, features = ["no-entrypoint"] }
@@ -36,3 +34,5 @@ spl-associated-token-account = { workspace = true, features = [
     "no-entrypoint",
 ] }
 spl-token-2022 = { workspace = true, features = ["no-entrypoint"] }
+
+sega-cp-swap = { path = "../sega-cp-swap" }

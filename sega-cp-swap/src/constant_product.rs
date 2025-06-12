@@ -1,7 +1,7 @@
 //! The Uniswap invariantConstantProductCurve::
 
-use crate::sega::calculator::{RoundDirection, TradingTokenResult};
-use crate::sega::math::CheckedCeilDiv;
+use crate::calculator::{RoundDirection, TradingTokenResult};
+use crate::math::CheckedCeilDiv;
 
 /// ConstantProductCurve struct implementing CurveCalculator
 #[derive(Clone, Debug, Default, PartialEq)]

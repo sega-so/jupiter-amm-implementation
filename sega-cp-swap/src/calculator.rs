@@ -1,4 +1,5 @@
-use crate::sega::{constant_product::ConstantProductCurve, fees::Fees};
+use crate::constant_product::ConstantProductCurve;
+use crate::fees::Fees;
 use std::fmt::Debug;
 
 /// The direction to round.  Used for pool token to trading token conversions to

@@ -2584,7 +2584,6 @@ version = "0.1.0"
 dependencies = [
  "ahash 0.8.12",
  "anchor-lang",
- "anchor-spl",
  "anyhow",
  "assert_matches",
  "async-trait",
@@ -2597,6 +2596,7 @@ dependencies = [
  "lazy_static",
  "paste",
  "rust_decimal",
+ "sega-cp-swap",
  "serde",
  "serde_json",
  "solana-account-decoder",
@@ -2608,7 +2608,6 @@ dependencies = [
  "spl-token-2022 7.0.0",
  "spl-token-swap",
  "tokio",
- "uint",
 ]
 
 [[package]]
@@ -4073,6 +4072,16 @@ checksum = "49db231d56a190491cb4aeda9527f1ad45345af50b0851622a7adb8c03b01c32"
 dependencies = [
  "core-foundation-sys",
  "libc",
+]
+
+[[package]]
+name = "sega-cp-swap"
+version = "0.1.0"
+dependencies = [
+ "anchor-lang",
+ "anchor-spl",
+ "rust_decimal",
+ "uint",
 ]
 
 [[package]]

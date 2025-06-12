@@ -6,7 +6,6 @@ mod math;
 pub mod pool;
 pub mod swap;
 
-pub const AUTH_SEED: &str = "vault_and_lp_mint_auth_seed";
 
 pub use amm_config::*;
 pub use calculator::*;
@@ -15,3 +14,9 @@ pub use fees::*;
 pub use math::*;
 pub use pool::*;
 pub use swap::*;
+
+pub const AUTH_SEED: &str = "vault_and_lp_mint_auth_seed";
+
+use anchor_lang::prelude::*;
+
+declare_id!("SegaXNnoXYTZiqUt9Xn2XqGcL56b25yzXLuJSpadcMu");
